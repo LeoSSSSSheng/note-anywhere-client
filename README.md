@@ -1,47 +1,37 @@
-Who is the primary audience?
 
 -->Students.
 
 What problem are you trying to solve?
 
--->Upload photos recording classes, notes etc. Sort them by data, location, and class tags.
+-->Make class notes photos recording classes, notes etc. Implement basic search functionality.
 
 How will the project requirements be fulfilled?
 
--->This project request the use of all 4 kind of restful services, post, update, delete, and read notes object posted. when users choose to display the locations, of all his/her updated nodes, it will use google map api, and mark all the geolocation using a tag from their photo uploaded.
+-->This project request the use of all 4 kind of restful services, post, update, delete, put.
 
 API endpoints:
 
 one api service for data storage and following are the end points for them
 
-super_note/add
+notes/search
 
-super_note/delete
+notes/main
 
-super_note/update
+notes/listView
 
-super_note/get
+/newNote
 
 one api service for the main app interface
 
-page/
+notes/
 
-  the main route, with buttons for navigation, welcome page
 
-page/search
+  ListView display all notes snapshot and provide search function based on title
+  It also provide update restful api call up modify listed notes
 
-  search node and display them, with function that display all
+  notes/listView
 
-  page/search/display_all
+  notes/newNote
+  newNote route is used to upload new notes, including text records.
 
-page/edit
-
-  edit route to upload new notes, including text, pictures, may be audio
-
-page/location_view
-
-  route dedicated for google api, view of the location of all notes taken.
-  
-page/advanced
-
-  route for some non-trivial data processing helping organizing notes and generate statistics for display.
+Ember Data was used to communicate with data api server.
