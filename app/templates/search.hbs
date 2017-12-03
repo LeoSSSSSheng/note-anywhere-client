@@ -1,0 +1,17 @@
+<div class="search-results">
+  {{#each relatedNotes.note as |record|}}
+  <div class="container">
+    <div class="jumbotron">
+      <h3>{{record.noteTitle}}</h3>
+      <h6>#{{record.noteTag}}</h6>
+      <h6>{{moment-format record.createdAt d/m}}</h6>
+      <div class="content">
+        <textarea value={{record.noteContent}} class="note-preview"></textarea>
+      </div>
+    </div>
+  </div>
+
+  {{/each}}
+</div>
+
+{{outlet}}

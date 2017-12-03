@@ -1,0 +1,85 @@
+<div class="search-bar">
+  <div class="page-header">
+    <div class="head-bar">
+      <p>Enter Search Key Word</p>
+      <form onsubmit={{action "searchForNotes"}}>
+          {{input type="text" value=keyword}}
+          <button type="submit">Search</button>
+        </form>
+    </div>
+  </div>
+</div>
+
+{{#each model as |record|}}
+
+<div class="loading">
+</div>
+
+<div class="row">
+  <div class="container">
+    <div class="jumbotron">
+      <div class="title">
+        <h3>{{record.noteTitle}}</h3>
+      </div>
+      <div class="tag-bar">
+        <div class="tag">
+          <h6>#{{record.noteTag}}</h6>
+        </div>
+        <div class="time">
+          <h6>Created At: {{moment-format record.createdAt "DD/MM/YY"}}</h6>
+        </div>
+      </div>
+
+
+      <form onsubmit={{action "updateNote" record}}>
+        <div class="mark">
+          <h4>Preview and Update</h4>
+        </div>
+        <div class="update-contents btn-left">
+          <input type="text"  value={{record.noteTitle}} id="updatedTitle">
+          <input type="text"  value={{record.noteTag}} id="updatedTag">
+          <textarea type="text"  value={{record.noteContent}} class="note-preview" id="updatedContent"></textarea>
+        </div>
+
+        <div class="delete btn-right">
+          <button type="submit" name="update" class="btn-lg">Update Note</button>
+        </div>
+      </form>
+      <div class="delete">
+        <button name="delete" onclick={{action "deleteNote" record}}  data-post-id="{{record.id}}" class="btn-lg">Delete Note</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{{else}}
+<div class="none">
+  <p>You haven't write any note yet!!</p>
+</div>
+
+{{/each}}
+
+
+<div class="container">
+  <div class="jumbotron">
+    <div class="left btn-lg">
+      {{#link-to "newNote"}}
+      Create New Note
+      {{/link-to}}
+    </div>
+
+    <div class="right btn-lg">
+      {{#link-to "main"}}
+      Go Back to Main Menu
+      {{/link-to}}
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{{outlet}}

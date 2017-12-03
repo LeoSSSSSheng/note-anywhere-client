@@ -1,0 +1,35 @@
+<div class="container new-note">
+
+  <form onsubmit={{action "createNote"}}>
+    <div class="time-stamp">
+      <span>Created at:  <span>{{moment-format createdAt "DD/MM/YY"}}  </span></span> <span>Updated at: <span>{{moment-format createdAt "DD/MM/YY"}}</span></span>
+    </div>
+
+    <div class="title">
+      <h3>Title: <span>{{input name="title" type="text" value=noteTitle  placeholder="Untitled" class="input-main"}}</span></h3>
+    </div>
+
+    <div class="tag">
+      <h3>Tag: <span>{{input type="text" value=noteTag placeholder="Add a tag" class="input-main"}}</span></h3>
+    </div>
+
+    <div class="content">
+      {{textarea value=noteContent class="note-main" placeholder="Just start typing here..."}}
+    </div>
+
+    <div class="tool-bar">
+      <button type="submit" class="btn-lg">Create</button>
+    </div>
+  </form>
+
+
+  <div class="btn-lg">
+    {{#link-to "main"}}
+    Go Back to Main Menu
+    {{/link-to}}
+  </div>
+
+</div>
+
+
+{{outlet}}
