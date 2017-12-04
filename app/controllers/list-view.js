@@ -8,12 +8,13 @@ export default Ember.Controller.extend({
       //find note from store/server
       //return a promise which contains the note returned
       this.get('store').findRecord('note', record.id).then(function(note){
-        console.log($('#updatedTitle').val());
+        console.log($(".updatedTitle."+record.id).val());
+        console.log(record.id);
         //use set to manipulate the attribute inside note model
         //select input val field using jquery
-        note.set('noteTag', $('#updatedTag').val());
-        note.set('noteTitle', $('#updatedTitle').val());
-        note.set('noteContent', $('#updatedContent').val());
+        note.set('noteTag', $(".updatedTag."+record.id).val());
+        note.set('noteTitle', $(".updatedTitle."+record.id).val());
+        note.set('noteContent', $(".updatedContent."+record.id).val());
         //save changed note model to server api through adapter
         note.save();
         toastr.success('You Have Updated Your Note!');

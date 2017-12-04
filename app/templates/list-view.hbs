@@ -36,9 +36,9 @@
           <h4>Preview and Update</h4>
         </div>
         <div class="update-contents btn-left">
-          <input type="text"  value={{record.noteTitle}} id="updatedTitle">
-          <input type="text"  value={{record.noteTag}} id="updatedTag">
-          <textarea type="text"  value={{record.noteContent}} class="note-preview" id="updatedContent"></textarea>
+          <input type="text"  value={{record.noteTitle}} class="updatedTitle {{record.id}}">
+          <input type="text"  value={{record.noteTag}} class="updatedTag {{record.id}}">
+          <textarea type="text"  value={{record.noteContent}} class="note-preview" class="updatedContent {{record.id}}"></textarea>
         </div>
 
         <div class="delete btn-right">
